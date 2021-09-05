@@ -25,7 +25,7 @@ class handDetector():
     # print (results.multi_hand._landmarks)
 
             if self.results.multi_hand_landmarks:
-                for handLms in results.multi_hand_landmarks:
+                for handLms in self.results.multi_hand_landmarks:
                     if draw:
                         self.mpdraw.draw_landmarks(img,handLms, self.mpHands.HAND_CONNECTIONS)
             return img            
@@ -42,8 +42,8 @@ class handDetector():
                 h, w, c = img.shape
                 cx, cy = int(lm.x*w), int(lm.y*h)
                 lmList.append([id, cx, cy])
-            if draw:
-                cv2.circle(img, (cx,cy) , 15, (255, 0, 255), cv2.FILLED)
+            if draw: # draw focus on one maker
+                cv2.circle(img, (cx,cy) , 6 , (255, 0, 255), cv2.FILLED)
         return lmList
 def main():
     pTime = 0
@@ -57,7 +57,7 @@ def main():
         detector.findHands(img)
         lmList = detector.findPosition(img)
         if len (lmList) != 0:
-            print (lmList[4])
+            print (lmList[8])
 
         cTime = time.time()
         fps = 1/(cTime-pTime)
