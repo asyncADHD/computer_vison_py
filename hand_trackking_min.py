@@ -20,7 +20,7 @@ while True:
 
     if results.multi_hand_landmarks:
         for handLms in results.multi_hand_landmarks:
-            mpdraw.draw_landmarks(img,handLms)
+            mpdraw.draw_landmarks(img,handLms, mpHands.HAND_CONNECTIONS)
 
     cv2.imshow("image", img)
     cv2.waitKey(1)
