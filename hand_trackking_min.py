@@ -9,7 +9,7 @@ cap = cv2.VideoCapture(0)
 
 mpHands = mp.solutions.hands
 hands = mpHands.Hands()
-mpdraw =mp.solutions.drawing_untils
+mpdraw =mp.solutions.drawing_utils
 
 
 while True:
@@ -19,7 +19,7 @@ while True:
     # print (results.multi_hand._landmarks)
 
     if results.multi_hand_landmarks:
-        for handLms in results.multi_landmarks:
+        for handLms in results.multi_hand_landmarks:
             mpdraw.draw_landmarks(img,handLms)
 
     cv2.imshow("image", img)
