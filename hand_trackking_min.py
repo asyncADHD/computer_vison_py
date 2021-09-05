@@ -14,7 +14,7 @@ while True:
     succsess, img = cap.read()
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     results  = hands.process(imgRGB)
-    print (results)
+    print (results.multi_hand.landmarks)
 
     cv2.imshow("image", img)
     cv2.waitKey(1)
